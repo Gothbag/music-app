@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { Button } from "react-bootstrap";
 
 class SongItem extends React.PureComponent {
 
@@ -37,6 +38,10 @@ class SongItem extends React.PureComponent {
 
         <td>
           <p>{ `${trackPrice} ${currency}` }</p>
+        </td>
+
+        <td>
+          <p><Button bsStyle="primary">View more info</Button></p>
         </td>
       </tr>
     );

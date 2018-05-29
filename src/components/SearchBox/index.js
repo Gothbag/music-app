@@ -24,7 +24,6 @@ class SearchBox extends React.Component {
 
     onSearchButtonClick = searchActive => e => {
         const { props: { onSearch } } = this;
-        console.log(e)
         if (searchActive) {
             onSearch("");
             this.setState({ input : "" });

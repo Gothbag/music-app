@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Col, Grid } from "react-bootstrap";
 
 import SongTable from "../SongTable";
 import SearchBox from "../SearchBox";
@@ -21,14 +20,12 @@ class Home extends React.PureComponent {
 	selectSong = id => this.props.setPlayedTrackId(id);
 
 	render() {
-		const { prepareSong, props: { loadSongs, songs } } = this;
+		const { prepareSong, props: { loadSongs, setSongsOrder, songs } } = this;
 
-		return (<Grid>
-			<Col sm={12}>
+		return (<div>
 				<SearchBox onSearch={loadSongs}/>
-				<SongTable items={songs.map(prepareSong)} idProperty="trackId" itemCard={SongItem}/>
-			</Col>
-		</Grid>);
+				<SongTable items={songs.map(prepareSong)} idProperty="trackId" itemCard={SongItem} setSongsOrder={setSongsOrder}/>
+			</div>);
 	}
 }
 

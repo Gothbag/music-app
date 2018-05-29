@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     loadSongs: searchTerm => dispatch(loadSongs(searchTerm)),
-    setPlayedTrackId: id  => dispatch(setPlayedSongId(id))
+    setPlayedTrackId: id  => dispatch(setPlayedSongId(id)),
+    setSongsOrder: id  => dispatch(setSongsOrder(id))
 }); 
 
 

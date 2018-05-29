@@ -1,10 +1,10 @@
 import { createSelector } from "reselect";
 
 const songListSelector = state.song.list;
-const songIdSelector = state.song.selectedSongId;
+const trackBeingPlayedIdSelector = state.song.trackBeingPlayedId;
 
 export const selectedSongSelector = createSelector(
   songListSelector,
-  songIdSelector,
-  (songs, id) => Array.isArray(songs) && songs.length > 0 ? songs.filter(song => song.id == id)[0] : {}
+  trackBeingPlayedIdSelector,
+  (songs, trackId) => Array.isArray(songs) && songs.length > 0 ? songs.filter(song => song.trackId == trackId)[0] : {}
 )
