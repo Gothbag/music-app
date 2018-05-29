@@ -2,11 +2,11 @@ import { connect } from "react-redux"
 
 import SongPage from "../components/SongPage";
 import { loadSong, setPlayedSongId } from "../actions/songs";
-import { selectedSongSelector } from "../selectors";
+import { selectedSongSelector, sortedSongsSelector } from "../selectors";
 
 const mapStateToProps = state => ({
 	song: selectedSongSelector(state),
-    songs: state.song.list
+    songs: sortedSongsSelector(state)
 }); 
 
 const mapDispatchToProps = dispatch => ({
