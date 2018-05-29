@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 
-const songListSelector = state.song.list;
-const trackBeingPlayedIdSelector = state.song.trackBeingPlayedId;
+const songListSelector = state => state.song.list;
+const trackBeingPlayedIdSelector = state => state.song.trackBeingPlayedId;
 
 export const selectedSongSelector = createSelector(
   songListSelector,

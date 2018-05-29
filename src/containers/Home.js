@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 
 import Home from "../components/Home";
-import { loadSongs, setPlayedSongId } from "../actions/songs";
+import { loadSongs, setPlayedSongId, setSongsOrder } from "../actions/songs";
 
 const mapStateToProps = state => ({
     songs: state.song.list,

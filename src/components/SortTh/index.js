@@ -1,8 +1,8 @@
 import React from 'react'
 import FontAwesome from "react-fontawesome";
-import {orderDirections} from "../helpers/constants";
+import {orderDirections} from "../../helpers/constants";
 
-class SongItem extends React.PureComponent {
+class SongTh extends React.PureComponent {
 
 	render() {
 		const { props: { sort, orderDirection } } = this;
@@ -13,3 +13,5 @@ class SongItem extends React.PureComponent {
 	}
 
 }
+
+export default SongTh;

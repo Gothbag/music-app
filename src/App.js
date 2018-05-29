@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Col, Grid } from "react-bootstrap";
 
-import ItemDetail from "./containers/SongPage";
+import SongPage from "./containers/SongPage";
 import Home from "./containers/Home";
 import "./App.css";
 

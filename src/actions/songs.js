@@ -21,7 +21,17 @@ export const setPlayedSongId = id => ({
 	payload: id
 });
 
-export const loadSongs = (searchTerm = "") => dispatch => axios.get(`https://itunes.apple.com/search?term=${searchTerm}&entity=song`)
+export const loadSong = trackId => dispatch => axios.get(`https://itunes.apple.com/lookup?id=${trackId}&entity=song`)
+  .then(data => {
+  	const { data: { results } } = data;
+	dispatch(addSongs(results));
+	dispatch(setPlayedSongId(results[0].trackId));
+  })
+  .catch(function (error) {
+    console.log(error);
+  }); 
+
+export const loadSongs = (searchTerm = "") => dispatch => axios.get(`https://itunes.apple.com/search?term=${searchTerm}&entity=song&limit=25`)
   .then(data => {
   	dispatch(addSongs(data.data.results));
   })
