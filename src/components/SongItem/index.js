@@ -41,7 +41,7 @@ class SongItem extends React.PureComponent {
         </td>
 
         <td>
-          <p><Button bsStyle="primary">View more info</Button></p>
+          <p><Button onClick={() => {}} bsStyle="primary">View more info</Button></p>
         </td>
       </tr>
     );

@@ -19,7 +19,8 @@ class SongTable extends React.PureComponent {
 		    	{text:"Release Date"},
 		    	{text:"Genre", sortBy: true, id: "primaryGenreName"},
 		    	{text:"Length", sortBy: true, id: "trackTimeMillis"},
-		    	{text:"Price", sortBy: true, id:"trackPrice"}
+		    	{text:"Price", sortBy: true, id:"trackPrice"},
+		    	{}
 	    	]
 	    }
 	}
