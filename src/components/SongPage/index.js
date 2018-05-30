@@ -6,6 +6,13 @@ import SongControls from "../SongControls";
 
 class SongPage extends React.PureComponent {
 
+	componentWillMount() {
+		const { props: { match, setPlayedTrackId } } = this;
+		if (match && match.params && match.params.trackId) {
+			setPlayedTrackId(match.params.trackId);
+		}
+	}
+
 	componentDidMount() {
 		const { props: { loadSong, match, song } } = this;
 		if (!song && match && match.params && match.params.trackId) {

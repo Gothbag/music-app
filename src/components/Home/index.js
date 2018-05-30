@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import SongTable from "../SongTable";
+import "./Home.css";
+
+import Table from "../Table";
 import SearchBox from "../SearchBox";
 import SongItem from "../SongItem";
 
@@ -15,16 +17,30 @@ class Home extends React.PureComponent {
 	    songs: []
   	}
 
-	prepareSong = song => ({...song, onPlayButtonClick:this.selectSong, trackBeingPlayed: song.trackId===this.props.trackBeingPlayedId})
+  	constructor(props) {
+	    super(props);
 
-	selectSong = id => this.props.setPlayedTrackId(id);
+	    this.state = {
+	    	cols: [
+		    	{},
+		    	{text:"Title", className:"song-title"}, 
+		    	{text:"Artist"},
+		    	{text:"Album"},
+		    	{text:"Release Date"},
+		    	{text:"Genre", sortBy: true, id: "primaryGenreName"},
+		    	{text:"Length", sortBy: true, id: "trackTimeMillis"},
+		    	{text:"Price", sortBy: true, id:"trackPrice"},
+		    	{}
+	    	]
+	    }
+	}
 
 	render() {
-		const { prepareSong, props: { loadSongs, setSongsOrder, songs } } = this;
+		const { props: { loadSongs, setSongsOrder, songs }, state: { cols } } = this;
 
 		return (<div>
 				<SearchBox onSearch={loadSongs}/>
-				<SongTable items={songs.map(prepareSong)} idProperty="trackId" itemCard={SongItem} setSongsOrder={setSongsOrder}/>
+				<Table items={songs} idProperty="trackId" itemCard={SongItem} cols={cols} setOrder={setSongsOrder}/>
 			</div>);
 	}
 }

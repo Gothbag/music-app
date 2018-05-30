@@ -1,11 +1,12 @@
 import React from "react";
 import moment from "moment";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class SongItem extends React.PureComponent {
 
   render() {
-    const { props: { artworkUrl100, trackName, artistName, collectionName, currency, primaryGenreName, releaseDate, trackPrice, trackTimeMillis } } = this;
+    const { props: { artworkUrl100, trackName, artistName, collectionName, currency, primaryGenreName, releaseDate, trackId, trackPrice, trackTimeMillis } } = this;
     return (
       <tr>
         <td>
@@ -41,7 +42,7 @@ class SongItem extends React.PureComponent {
         </td>
 
         <td>
-          <p><Button onClick={() => {}} bsStyle="primary">View more info</Button></p>
+          <p><Link to={`/song/${trackId}`}><Button bsStyle="primary">View more info</Button></Link></p>
         </td>
       </tr>
     );
